@@ -192,19 +192,7 @@
   .offset1 {
     margin-left: 130px;
   }
-  .row-fluid {
-    width: 100%;
-    *zoom: 1;
-  }
-  .row-fluid:before,
-  .row-fluid:after {
-    display: table;
-    line-height: 0;
-    content: "";
-  }
-  .row-fluid:after {
-    clear: both;
-  }
+
   .row-fluid [class*="span"] {
     display: block;
     float: left;
@@ -541,19 +529,6 @@
   }
   .offset1 {
     margin-left: 82px;
-  }
-  .row-fluid {
-    width: 100%;
-    *zoom: 1;
-  }
-  .row-fluid:before,
-  .row-fluid:after {
-    display: table;
-    line-height: 0;
-    content: "";
-  }
-  .row-fluid:after {
-    clear: both;
   }
   .row-fluid [class*="span"] {
     display: block;

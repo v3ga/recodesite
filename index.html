@@ -15,9 +15,8 @@ body_id: home
     </div>
 </div>
 
-<div class="row-fluid" style="margin-bottom:30px">
-    <div class="span6 offset1">
-        </br>
+<div class="row-fluid" id="intro">
+    <div class="">
         <p>
         The ReCode Project is a community-driven effort to preserve computer art by translating it into a modern programming language (<a href="https://p5js.org" target="_blank">p5.js</a>).
         Every translated work will be available to the public to learn from, share, and build on.
@@ -59,7 +58,7 @@ body_id: home
 
 
 <div class="row-fluid" style="background-color:#EEE">
-    <div class="span10 offset1">
+    <div class="span10">
         <h3>Current Projects</h3>
         <p>
             "Computer Graphics and Art" was a quarterly magazine published between 1976 and 1978. We are using PDF copies of the entire run of the magazine as our starting point for the project. The majority of the artworks have no code published alongside the original result, providing an opportunity for a variety of interpretations and approaches, all of which can become the starting point for a new work.
@@ -67,30 +66,28 @@ body_id: home
         <p>
             PDFs of the original source documents come from <a href="http://dada.compart-bremen.de" target="_blank">compart</a> via <a href="http://rhizome.org/editorial/2012/sep/25/prosthetic-knowledge-picks-computer-graphics-art-1/" target="_blank">Rhizome</a>.
         </p>
-    <hr>
-    </br>
-    <!-- jump links -->
-    <div class="row">
-        <div class="span3 offset1"</div>
-            <p>Vol.1 No.1 (unavailable)</p>
-            <p><a href="#v1n2">Vol.1 No.2 (May, 1976)</a></p>
-            <p><a href="#v1n3">Vol.1 No.3 (August, 1976)</a></p>
-            <p><a href="#v1n4">Vol.1 No.4 (November, 1976)</a></p>
+
+        <!-- jump links -->
+        <div class="row" id="list-magazines">
+            <div class="span3 offset1"</div>
+                <p>Vol.1 No.1 (unavailable)</p>
+                <p><a href="#v1n2">Vol.1 No.2 (May, 1976)</a></p>
+                <p><a href="#v1n3">Vol.1 No.3 (August, 1976)</a></p>
+                <p><a href="#v1n4">Vol.1 No.4 (November, 1976)</a></p>
+            </div>
+            <div class="span3 offset1"</div>
+                <p><a href="#v2n1">Vol.2 No.1 (February, 1977)</a></p>
+                <p><a href="#v2n2">Vol.2 No.2 (May, 1977)</a></p>
+                <p><a href="#v2n3">Vol.2 No.3 (August, 1977)</a></p>
+                <p><a href="#v2n4">Vol.2 No.4 (November, 1977)</a></p>
+            </div>
+            <div class="span3 offset1"</div>
+                <p><a href="#v3n1">Vol.3 No.1 (February, 1978)</a></p>
+                <p><a href="#v3n2">Vol.3 No.2 (May, 1978)</a></p>
+                <p><a href="#v3n3">Vol.3 No.3 (August, 1978)</a></p>
+                <p><a href="#v3n4">Vol.3 No.4 (November, 1978)</a></p>
+            </div>
         </div>
-        <div class="span3 offset1"</div>
-            <p><a href="#v2n1">Vol.2 No.1 (February, 1977)</a></p>
-            <p><a href="#v2n2">Vol.2 No.2 (May, 1977)</a></p>
-            <p><a href="#v2n3">Vol.2 No.3 (August, 1977)</a></p>
-            <p><a href="#v2n4">Vol.2 No.4 (November, 1977)</a></p>
-        </div>
-        <div class="span3 offset1"</div>
-            <p><a href="#v3n1">Vol.3 No.1 (February, 1978)</a></p>
-            <p><a href="#v3n2">Vol.3 No.2 (May, 1978)</a></p>
-            <p><a href="#v3n3">Vol.3 No.3 (August, 1978)</a></p>
-            <p><a href="#v3n4">Vol.3 No.4 (November, 1978)</a></p>
-        </div>
-    </div>
-    <hr>
     </div>
 </div>
 
@@ -99,18 +96,15 @@ body_id: home
       {% assign artworks = site.artworks | where: "source_id", v.id %}
       {% if artworks.size > 0 %}
         <div class="row-fluid">
-            <div id="{{ v.id }}" class="span10 offset1">
-                </br>
-                </br>
+            <div id="{{ v.id }}" class="span10">
                 <h5>
                     {{ v.name }}
                     {% if v.url %}<a href="{{ v.url }}" target="_blank" rel="noopener noreferrer">[PDF]</a>{% endif %}
                 </h5>
 
-                <ul class="thumbnails">
+                <div class="artworks thumbnails">
                 {% for a in artworks %}
                     {% assign url = "/artwork/" | append: a.slug | relative_url %}
-                    <li>
                         <div class="thumbnail">
                             <a href="{{ url }}"><img src="{{ '/assets/img/' | append: a.photo_link | relative_url }}"></a>
                             <div class="caption">
@@ -118,9 +112,8 @@ body_id: home
                                 <strong><p style="color:black">{{ a.artist }}</p></strong>
                             </div>
                         </div>
-                    </li>
                 {% endfor %}
-                </ul>
+                </div>
             </div>
         </div>
         {% endif %}

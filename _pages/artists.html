@@ -1,0 +1,16 @@
+---
+layout: page
+title: Artists
+permalink: /artists
+---
+
+<div class="row-fluid">
+  <ul>
+    {% for a in site.artists %}
+    <li>
+      {% assign url = "/artists/" | append: a.slug | relative_url %}
+      <a href="{{ url }}">{{ a.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

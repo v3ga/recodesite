@@ -33,21 +33,25 @@ collections:
   pde:
     output: true
     permalink: /translations/pde/:slug
+  artists:
+    output: true
+    permalink: /artists/:slug/
 
 # defaults values for collections
 defaults:
   - scope:
-      path: ""
       type: artworks
     values:
       layout: "artwork"
   - scope:
-      path: ""
+      type: artists
+    values:
+      layout: "artist"
+  - scope:
       type: p5js
     values:
       layout: "p5js"
   - scope:
-      path: ""
       type: pde
     values:
       layout: "pde"

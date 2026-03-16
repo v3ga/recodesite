@@ -70,21 +70,21 @@ function setup() {
 }
 
 function draw(){
-  missingSides[0] = int(random(12));
+  missingSides[0] = Math.trunc(random(12));
   while(missingSides[1] == missingSides[0]){
-    missingSides[1] = int(random(12));
+    missingSides[1] = Math.trunc(random(12));
   }
   while(missingSides[2] == missingSides[0]
     || missingSides[2] == missingSides[1]){
-     missingSides[2] = int(random(12));
+     missingSides[2] = Math.trunc(random(12));
   }
-  missingSides2[0] = int(random(12));
+  missingSides2[0] = Math.trunc(random(12));
   while(missingSides2[1] == missingSides2[0]){
-    missingSides2[1] = int(random(12));
+    missingSides2[1] = Math.trunc(random(12));
   }
   while(missingSides2[2] == missingSides2[0]
     || missingSides2[2] == missingSides2[1]){
-     missingSides2[2] = int(random(12));
+     missingSides2[2] = Math.trunc(random(12));
   }
   for(let i = 0; i < 3; i++){
    permutation[missingSides[i]] = false;

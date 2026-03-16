@@ -80,7 +80,7 @@ class Pattern
     this.widthPattern = 270;
     this.tailleRect = 18;
     this.range=0;
-    this.greyLevel = int(map(_greyLevel, 0, 1, 200, 44));
+    this.greyLevel = Math.trunc(map(_greyLevel, 0, 1, 200, 44));
 
     this.x = new Array(this.widthPattern/this.tailleRect);
     this.y = new Array(this.heightPattern/this.tailleRect);
@@ -95,8 +95,8 @@ class Pattern
       this.y[j] = j*this.tailleRect;
     }
 
-    this.posX = this.x[int(random(1, this.x.length-2))];
-    this.posY = this.y[int(random(1, this.y.length-2))];
+    this.posX = this.x[Math.trunc(random(1, this.x.length-2))];
+    this.posY = this.y[Math.trunc(random(1, this.y.length-2))];
 
   }
   //function display
@@ -106,7 +106,7 @@ class Pattern
     translate(this.posX, this.posY);
     for (let i = 0; i< this.widthPattern/this.tailleRect; i++) {
       for ( let j = 0; j < this.heightPattern/this.tailleRect; j++ ) {
-        this.range = int(random(0, 2));
+        this.range = Math.trunc(random(0, 2));
         noStroke();
         if ( this.range == 1) {
           fill(this.greyLevel);
@@ -152,8 +152,8 @@ class Pattern
   //update function
   update()
   {
-    this.posX = this.x[int(random(1, this.x.length-2))];
-    this.posY = this.y[int(random(1, this.y.length-2))];
+    this.posX = this.x[Math.trunc(random(1, this.x.length-2))];
+    this.posY = this.y[Math.trunc(random(1, this.y.length-2))];
     this.display();
   }
 }

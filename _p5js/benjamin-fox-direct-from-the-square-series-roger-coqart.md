@@ -29,7 +29,7 @@ let numScreenCells = screenRows * screenCols;
 let n = 7;//we're defining as a single var as we want it square
 let tileSize = 35;// w / h of the lined tile
 let numTiles = n * n;
-let centerTile = int(n/2);
+let centerTile = Math.trunc(n/2);
 
 let lines;
 
@@ -56,7 +56,7 @@ function draw() {
 
   for (let i = 0; i < numScreenCells; i++) {
     let x = i % screenRows;
-    let y = int(i / screenCols);
+    let y = Math.trunc(i / screenCols);
 
     //decides on the density of tiles for the cell we are filling
     if (i % 2 == 0) {
@@ -119,7 +119,7 @@ function tile(col, row, maxLines, reducer) {
 
   for (let i = 0; i < numTiles; i++) {
     let c = i % n;
-    let r = int(i / n);
+    let r = Math.trunc(i / n);
 
     let numLines = maxLines - (reducer * max(abs(r - centerTile), abs(c - centerTile)));
 

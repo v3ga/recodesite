@@ -53,10 +53,10 @@ point(A, G);
 
 strokeWeight(2);
 
-for (let i=-50; i<lunghezza; i=i+int(random(2,6)))
+for (let i=-50; i<lunghezza; i=i+Math.trunc(random(2,6)))
 {
-for (let j=99-i; j<larghezza; j=j+int(random(1,6)))
-{ x = j-int(i/3)+vicini;
+for (let j=99-i; j<larghezza; j=j+Math.trunc(random(1,6)))
+{ x = j-Math.trunc(i/3)+vicini;
 if (y<180 && x>(235+random(0,4))){ }
 else{
 
@@ -66,7 +66,7 @@ point(width-x, height-y);
 }
 
 
-y = (y<=height ? y=y+int(random(2,28))+j+2 : 0);
+y = (y<=height ? y=y+Math.trunc(random(2,28))+j+2 : 0);
 
 }
 }

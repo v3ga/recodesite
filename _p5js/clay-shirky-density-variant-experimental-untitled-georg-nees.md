@@ -42,7 +42,7 @@ function drawCircles() {
       push();
         translate(150 + (300 * r), 150 + (300 * c));
         //ellipse(0, 0, 300, 300);
-        for(let i = 0; i < int(random(min, max)); i++) {
+        for(let i = 0; i < Math.trunc(random(min, max)); i++) {
           let a = random(0, TWO_PI);
           let x1 = radius * cos(a);
           let y1 = radius * sin(a);

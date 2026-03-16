@@ -73,8 +73,8 @@ function mousePressed() {
   reseed();
 }
 function reseed() {
-  seed1 = int(random(10000));
-  seed2 = int(random(10000));
+  seed1 = Math.trunc(random(10000));
+  seed2 = Math.trunc(random(10000));
   clickTime = millis();
 }
 

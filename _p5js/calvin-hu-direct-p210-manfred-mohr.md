@@ -130,7 +130,6 @@ function draw() {
   }
   pop();
 
-  hint(DISABLE_DEPTH_TEST);
   noStroke();
   fill(255);
   for (let i = 0; i < 4; i++) {

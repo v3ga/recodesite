@@ -105,8 +105,8 @@ function generateLines(numberOfLines) {
 	// nous avons un tableau initial allant de 0 à 7
 	// on echange quelques valeurs
 	for (let i = 0; i < numberOfLines - 1; i++){
-		let rand1 = int(random(8));
-		let rand2 = int(random(8));
+		let rand1 = Math.trunc(random(8));
+		let rand2 = Math.trunc(random(8));
 		let temp;
 
 		temp = check[rand1];

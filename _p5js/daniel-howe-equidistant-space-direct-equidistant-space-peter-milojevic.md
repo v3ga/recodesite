@@ -76,7 +76,7 @@ function update() {
   dt.insert(px, py + 1);
 
   // neighbors repulse each other
-  let D = int(Math.sqrt(nodes.length));
+  let D = Math.trunc(Math.sqrt(nodes.length));
   for (let i = 0; i < edges.length; i++) {
     let edge = edges[i];
     clip(edge.p1);
@@ -110,7 +110,7 @@ function update() {
   }
 
   for (let i = 0;  i < 4; i++)
-      tmpNodes.splice(int(random(tmpNodes.length)), 1);
+      tmpNodes.splice(Math.trunc(random(tmpNodes.length)), 1);
 
   dt.clear();
   for (let i = 0; i < tmpNodes.length; i++) {
@@ -145,7 +145,7 @@ class Delaunay {
       nodes = [];
       edges = [];
       for (let i = 0; i < num; i++)
-        this.insert(int(random(width/4, width * 0.75)), int(random(height/4, height * 0.75)));
+        this.insert(Math.trunc(random(width/4, width * 0.75)), Math.trunc(random(height/4, height * 0.75)));
     }
 
     clear() {

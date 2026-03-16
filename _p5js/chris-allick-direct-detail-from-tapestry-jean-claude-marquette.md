@@ -38,7 +38,7 @@ function drawSquares() {
   pg.background( 240 );
     for( let r = 2; r < 15; r++ ) {
       for( let c = 0; c < 28; c++ ) {
-        let rand = int(round(random(0,1)));
+        let rand = Math.trunc(round(random(0,1)));
         pg.noStroke();
         if( rand == 1 ) {
           pg.fill( 63 );

@@ -42,7 +42,7 @@ function setup() {
       let a = step + step * sin(x / period);
       let b = step + step * cos(y / period);
       let c = step + step * sin(sqrt(x * x + y * y) / period);
-      cls[x + y * width] = int((a + b + c) / 4);
+      cls[x + y * width] = Math.trunc((a + b + c) / 4);
     }
   }
 }

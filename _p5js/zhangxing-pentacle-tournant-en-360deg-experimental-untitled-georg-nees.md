@@ -81,9 +81,9 @@ class Particle {
     this.x1 = this.origx;
     this.y1 = this.origy;
 
-    this.rd = int(random(255));
-    // this.gr = int(random(255));
-    // this.bl = int(random(255));
+    this.rd = Math.trunc(random(255));
+    // this.gr = Math.trunc(random(255));
+    // this.bl = Math.trunc(random(255));
     this.bl = this.gr = this.rd;  // grey
   }
 

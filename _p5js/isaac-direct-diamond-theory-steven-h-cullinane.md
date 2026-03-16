@@ -34,8 +34,8 @@ function setup(){
   d = new Diamond(4);
 
   createCanvas(
-    int((d.drawScale * d.qSide + spacing) * cols) + spacing,
-    int((d.drawScale * d.qSide + spacing) * rows) + spacing
+    Math.trunc((d.drawScale * d.qSide + spacing) * cols) + spacing,
+    Math.trunc((d.drawScale * d.qSide + spacing) * rows) + spacing
   );
 
   translate(spacing, spacing);
@@ -65,10 +65,10 @@ class Diamond {
     let testSet = new Set();
     for(let i = 0; i < this.qSide * this.qSide; i++){
       testSet.clear();
-      let v = int(random(0, this.qSide));
+      let v = Math.trunc(random(0, this.qSide));
       let again = false;
       let x = i % this.qSide;
-      let y = int(i / this.qSide);
+      let y = Math.trunc(i / this.qSide);
 
       do {
         again = false;
@@ -81,17 +81,17 @@ class Diamond {
           testSet.add(tv);
         }
         do {
-          v = int(random(0, this.qSide));
+          v = Math.trunc(random(0, this.qSide));
         } while(testSet.has(v) && testSet.size < this.qSide);
       } while(again);
       this.items.push(v);
     }
 
-    let r = int(random(0, 3));
+    let r = Math.trunc(random(0, 3));
     if(r == 0){
-      this.mirror(int(random(0, 2)));
+      this.mirror(Math.trunc(random(0, 2)));
     } else if(r == 1){
-      this.invert(int(random(0, 2)));
+      this.invert(Math.trunc(random(0, 2)));
     } else {
       this.loop();
     }

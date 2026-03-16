@@ -110,7 +110,7 @@ function column(wide, spacing, total, rotated) {
 function shuffle(numbers) {
   for (let k = 0; k < cols; k++) {
     for (let i = numbers[k].length - 1; i > 0; i = i - 1) {
-      let j = int(random(i + 1));
+      let j = Math.trunc(random(i + 1));
       let temp1 = numbers[k][i];
       let temp2 = numbers[k][j];
       numbers[k][i] = temp2;

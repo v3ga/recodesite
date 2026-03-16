@@ -43,8 +43,8 @@ function draw() {
     startX = endX;
     startY = endY;
     // stay 10px from the border
-    endX = int(random(10, width - 10));
-    endY = int(random(10, height - 10));
+    endX = Math.trunc(random(10, width - 10));
+    endY = Math.trunc(random(10, height - 10));
 
     liner(endX, endY, startX, startY);
     // add arrow to first line

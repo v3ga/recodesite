@@ -59,8 +59,8 @@ class Rect {
 
     this.x = _x;
     this.y = _y;
-    this.xoff = int(random(2, 20));
-    this.yoff = int(random(2, 10));
+    this.xoff = Math.trunc(random(2, 20));
+    this.yoff = Math.trunc(random(2, 10));
 
     this.xd = random(-1, 1);
     this.yd = random(-1, 1);

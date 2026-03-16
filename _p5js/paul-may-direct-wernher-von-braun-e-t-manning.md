@@ -39,12 +39,7 @@ let allowed_colours = [
 */
 
 // reduced grey palette
-let allowed_colours = [
- color(0, 0, 0), color(8, 8, 8), color(16, 16, 16), color(24, 24, 24), color(32, 32, 32),
- color(40, 40, 40), color(48, 48, 48), color(56, 56, 56), color(64, 64, 64), color(72, 72, 72),
- color(80, 80, 80), color(88, 88, 88), color(96, 96, 96), color(104, 104, 104), color(112, 112, 112),
- color(120, 120, 120), color(128, 128, 128), color(136, 136, 136), color(144, 144, 144), color(152, 152, 152),
- color(160, 160, 160), color(168, 168, 168), color(255, 255, 255)];
+let allowed_colours;
 
 
 
@@ -52,6 +47,14 @@ let allowed_colours = [
 /* ---------------- SETUP ---------------------- */
 
 function setup() {
+
+  allowed_colours = [
+  color(0, 0, 0), color(8, 8, 8), color(16, 16, 16), color(24, 24, 24), color(32, 32, 32),
+  color(40, 40, 40), color(48, 48, 48), color(56, 56, 56), color(64, 64, 64), color(72, 72, 72),
+  color(80, 80, 80), color(88, 88, 88), color(96, 96, 96), color(104, 104, 104), color(112, 112, 112),
+  color(120, 120, 120), color(128, 128, 128), color(136, 136, 136), color(144, 144, 144), color(152, 152, 152),
+  color(160, 160, 160), color(168, 168, 168), color(255, 255, 255)];
+
   // size(1920, 1080); // FHD
   // size(1360, 768); // HD
   // size(1280,720); // 720p

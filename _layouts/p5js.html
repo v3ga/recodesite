@@ -25,6 +25,8 @@ body_id: translation
     import { EditorView, basicSetup } from "https://esm.sh/codemirror@6.0.1";
     import { javascript } from "https://esm.sh/@codemirror/lang-javascript@6.1.7";
 
+    var bFirstLoad = true;
+
     window.addEventListener('load', () => 
     {
       // Get code
@@ -66,16 +68,22 @@ body_id: translation
       iframe.addEventListener("load", () => 
       {
 
-        const observer = new MutationObserver(() => {
+        const observer = new MutationObserver(() => 
+        {
             const canvas = doc.querySelector("canvas");
             if (canvas) 
             {
               observer.disconnect();
-              resizeSketch(iframe,canvas);
+              /*if (bFirstLoad)
+              {
+                bFirstLoad = false;
+                setTimeout( _=>{ resizeSketch(iframe,canvas) }, 150 ); 
+              }
+              else*/
+                resizeSketch(iframe,canvas);
             }
           });
 
-        const doc = iframe.contentDocument;          
         observer.observe(doc.body, { childList: true, subtree: true });          
       });
 
@@ -93,6 +101,8 @@ body_id: translation
       </html>
       ` : ``);
       doc.close();
+      doc.body.style.margin = "0";
+      doc.body.style.padding = "0";
     }
 
     function removeSketch()
@@ -112,12 +122,6 @@ body_id: translation
         canvas.style.height = width * ratio + "px";
 
         iframe.height = canvas.style.height + "px";
-        
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        if (doc) {
-          doc.body.style.margin = "0";
-          doc.body.style.padding = "0";
-        }
       }
 
       resize();

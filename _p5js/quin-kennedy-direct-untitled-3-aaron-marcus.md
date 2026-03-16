@@ -18,17 +18,20 @@ Originally published in "Computer Graphics and Art" v3n2, 1978
 Copyright (c) 2012 Quin Kennedy - OSI/MIT license (http://recodeproject/license).
 */
 
-const numLines = 21;
-const numShapes = 7;
-const lineHalfHeight = 16;
-const borderPixelSize = 15;
-const canvasSize = numLines * 2 * lineHalfHeight + borderPixelSize * 2;
-const aspectRatio = 670 / 700; // taken from reproduction in PDF
-const defaultStep = Math.floor(lineHalfHeight / 3);
-const longDiagWidth = Math.tan(radians(30)) * lineHalfHeight;
-const shortDiagWidth = Math.tan(radians(30)) * (lineHalfHeight / 2);
+var numLines = 21;
+var numShapes = 7;
+var lineHalfHeight = 16;
+var borderPixelSize = 15;
+var canvasSize = numLines * 2 * lineHalfHeight + borderPixelSize * 2;
+var aspectRatio = 670 / 700; // taken from reproduction in PDF
+var defaultStep = Math.floor(lineHalfHeight / 3);
+var longDiagWidth = 0;
+var shortDiagWidth = Math.tan(radians(30)) * (lineHalfHeight / 2);
 
 function setup() {
+  longDiagWidth = Math.tan(radians(30)) * lineHalfHeight;
+  shortDiagWidth = Math.tan(radians(30)) * (lineHalfHeight / 2);
+
   // The combination of 1.5 stroke and no smoothing creates an attractive raw look
   createCanvas(Math.floor(canvasSize * aspectRatio), canvasSize);
   noLoop();

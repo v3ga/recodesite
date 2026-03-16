@@ -92,6 +92,7 @@ function setup(){
   rotateXAngle = PI * 5/6;
   rotateYAngle = PI * -5/6;
   rotateZAngle = 0;
+
 }
 
 function draw(){
@@ -100,6 +101,8 @@ function draw(){
   permutation = newPermutation;
   bitPositions = newBitPositions;
   background(0);
+      translate(-32/2*interval-offset/2,-height/2);
+
   for(let i = 0; i < 32; i++){
       let columnX = offset + i * interval;
       line(columnX, offset, columnX, height - offset);

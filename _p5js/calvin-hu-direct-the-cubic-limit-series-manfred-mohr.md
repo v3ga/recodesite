@@ -81,6 +81,7 @@ function setup(){
     background(0);
     noFill();
     stroke(255);
+    translate(-32/2*interval-offset/2,-height/2);
     for(let i = 0; i < 32; i++){
       let columnX = offset + i * interval;
       line(columnX, offset, columnX, height - offset);
@@ -93,7 +94,7 @@ function setup(){
 
     let anyPermsLeft = true;
     push();
-    translate(32 * interval + offset/2, offset/2);
+    translate(32 * interval -offset/2, offset/2);
     for(let i = 0; i < 31 && anyPermsLeft; i++){
       translate(-interval, 0);
       push();

@@ -6,14 +6,14 @@
 
 
 /*
-————————— global 
+————————— global
 */
-body 
+body
 {
   overflow-x: hidden;
 }
 
-hr 
+hr
 {
   margin : 20px 8% 0 8%;
 }
@@ -64,7 +64,7 @@ hr
   margin:0;
 }
 
-.navbar-search 
+.navbar-search
 {
   margin-top:7px;
 }
@@ -89,7 +89,7 @@ hr
 ————————— base.html
 */
 
-.page-content 
+.page-content
 {
   padding-top: 45px;
 }
@@ -97,12 +97,12 @@ hr
 /*
 ————————— index.html
 */
-.home_links a 
+.home_links a
 {
   color: #ab0000;
 }
 
-#home .page-content 
+#home .page-content
 {
   padding: 0;
   width: 100%;
@@ -130,6 +130,10 @@ hr
 
 .artworks.thumbnails .thumbnail .caption {
   text-align: center;
+}
+.caption a {
+  display: block;
+  text-decoration: none;
 }
 
 #list-magazines {
@@ -217,7 +221,7 @@ hr
 
 
 
-@media (max-width: 1100px) 
+@media (max-width: 1100px)
 {
   .sketch-wrapper
   {
@@ -277,4 +281,3 @@ hr
   }
 
 }
-

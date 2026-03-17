@@ -10,14 +10,17 @@ body_id: artist
 </div>
 <div class="row-fluid">
   <div class="span12">
-    {% assign artworks = site.artworks | where: "artist", page.name %}
-    <ul>
-      {% for a in artworks %}
-      <li>
-        {% assign url = "/artworks/" | append: a.slug | relative_url %}
-        <a href="{{ url }}">{{ a.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
+
+  <div class="artworks thumbnails">
+  {% assign artworks = site.artworks | where: "artist", page.name %}
+  {% for a in artworks %}
+      {% assign url = "/artworks/" | append: a.slug | relative_url %}
+          <div class="thumbnail">
+              <a href="{{ url }}"><img src="{{ '/assets/img/' | append: a.photo_link | relative_url }}"></a>
+              <div class="caption">
+                  <a href="{{ url }}" class="artwork">{{ a.title }}</a>
+              </div>
+          </div>
+  {% endfor %}
   </div>
 </div>

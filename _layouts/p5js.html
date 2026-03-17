@@ -108,11 +108,13 @@ body_id: translation
             {
               console.log('canvas creation observed');
               observer.disconnect();
-              window.parent.resizeSketch(c.clientWidth, c.clientHeight);
+              window.parent.resizeSketch();
             }
           });
           observer.observe(document.body, { childList: true, subtree: true }); 
+          window.addEventListener("resize", _=>{window.parent.resizeSketch()});
           <\/script>
+
         <script>${code}<\/script>
       </body>
       </html>
@@ -126,26 +128,19 @@ body_id: translation
       container.innerHTML='';
     }
 
-    window.resizeSketch = (w,h)=>
+    window.resizeSketch = ()=>
     {
-      console.log(`resizeSketch(${w},${h})`);
+      let iframe = document.getElementById("sketch-iframe");
+      let canvas = iframe.contentWindow.document.querySelector("canvas");
+      let w= canvas.clientHeight, h=canvas.clientHeight;
       const ratio = h / w;
-      function resize() 
-      {
-        let iframe = document.getElementById("sketch-iframe");
-        let canvas = iframe.contentWindow.document.querySelector("canvas");
 
-        // Set the iframe height
-        iframe.height = w * ratio + "px";
+      // Set the iframe height
+      iframe.height = w * ratio + "px";
 
-        // Adjust canvas display
-        canvas.style.width = "100%";
-        canvas.style.height = "";
-      }
-
-      // Resize
-      resize();
-      window.addEventListener("resize", resize);
+      // Adjust canvas display
+      canvas.style.width = "100%";
+      canvas.style.height = "";
     }
 
 </script>

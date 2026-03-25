@@ -1,7 +1,31 @@
 <!doctype html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>  
   {%- include head.html -%}
+  {% if layout.body_id == "translation" %}
+    {%- assign artwork = site.artworks | find: "slug", page.artwork_slug -%}
+    {%- assign artist = site.artists | find: "name", artwork.artist -%}
 
+    {%- assign og_image = '/assets/img/' | append: artwork.photo_link | absolute_url -%}
+    {%- capture og_description -%}
+      {{ page.title }} — translated by {{ page.translator }}. Based on "{{ artwork.title }}" by {{ artist.name }}.
+    {%- endcapture -%}
+    {% assign safe_og_description = og_description | replace: '"', "'" %}
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ og_image }}">
+    <meta property="og:description" content="{{ safe_og_description | strip_html | strip_newlines | truncate:160 | json_escape }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:image" content="{{ og_image }}">
+    <meta name="twitter:description" content="{{ safe_og_description | strip_html | strip_newlines | truncate:160 | json_escape }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+
+  {% else %}
+    {%- seo -%}
+  {% endif %}
+  </head>
   <body id="{{ page.body_id | default: layout.body_id | default: 'body' }}">
     {%- include header.html -%}
 

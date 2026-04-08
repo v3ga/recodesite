@@ -2,29 +2,49 @@
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
   <head>  
   {%- include head.html -%}
-  {% if layout.body_id == "translation" %}
-    {%- assign artwork = site.artworks | find: "slug", page.artwork_slug -%}
+  {%- if layout.body_id == "translation" or layout.body_id == "artwork" -%}
     {%- assign artist = site.artists | find: "name", artwork.artist -%}
+    
+    {%- assign og_title = page.title -%}
+    {%- assign og_type = 'article' -%}
+    {%- assign og_url = page.url | absolute_url -%}
 
-    {%- assign og_image = '/assets/img/' | append: artwork.photo_link | absolute_url -%}
-    {%- capture og_description -%}
-      {{ page.title }} — translated by {{ page.translator }}. Based on "{{ artwork.title }}" by {{ artist.name }}.
-    {%- endcapture -%}
+    {%- if layout.body_id == "translation" -%}
+
+    {%- assign artwork = site.artworks | find: "slug", page.artwork_slug -%}
+      {%- assign og_image = '/assets/img/' | append: artwork.photo_link | absolute_url -%}
+      {%- capture og_description -%}
+        {{ page.title }} — translated by {{ page.translator }}. Based on "{{ artwork.title }}" by {{ artist.name }}.
+      {%- endcapture -%}
+
+    {%- elsif layout.body_id == "artwork" -%}
+
+    {%- assign og_image = '/assets/img/' | append: page.photo_link | absolute_url -%}
+      {%- capture og_description -%}
+        Artwork by {{ page.artist }}. Published in {{ page.source }} {{ page.source_id }} ({{page.period}})
+      {%- endcapture -%}
+
+      {% endif %}
+    
     {% assign safe_og_description = og_description | replace: '"', "'" %}
-    <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ og_image }}">
-    <meta property="og:description" content="{{ safe_og_description | strip_html | strip_newlines | truncate:160 | json_escape }}">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:image" content="{{ og_image }}">
-    <meta name="twitter:description" content="{{ safe_og_description | strip_html | strip_newlines | truncate:160 | json_escape }}">
-    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:site_name"     content="{{ site.title }}">
+    <meta property="og:title"         content="{{ og_title }}">
+    <meta property="og:author"        content="Recode Team">
+    <meta property="og:type"          content="{{ og_type }}">
+    <meta property="og:url"           content="{{ og_url }}">
+    <meta property="og:image"         content="{{ og_image }}">
+    <meta property="og:description"   content="{{ safe_og_description | strip_html | strip_newlines | truncate:160 | json_escape }}">
+    <meta property="og:locale"        content="en_US" />
+
+    <meta name="twitter:card"         content="summary">
+    <meta name="twitter:title"        content="{{ og_title }}">
+    <meta name="twitter:image"        content="{{ og_image }}">
+    <meta name="twitter:description"  content="{{ safe_og_description | strip_html | strip_newlines | truncate:160 | json_escape }}">
 
   {% else %}
     {%- seo -%}
   {% endif %}
+    {%- seo -%}
   </head>
   <body id="{{ page.body_id | default: layout.body_id | default: 'body' }}">
     {%- include header.html -%}

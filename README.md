@@ -2,6 +2,9 @@
 
 The ReCode Project is a community-driven effort to preserve computer art by translating it into a modern programming language. Every translated work is available to the public and contemporary artists to learn from, share, and build on.
 
+You can join us on the RecodeArt's discord:
+https://discord.gg/mR3J4atuQH
+
 ## Running locally
 
 This website is a static website generated with jekyllrb.
